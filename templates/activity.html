@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FINDER - Activity</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* 기존 스타일 유지 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, #f6f8fd 0%, #f1f4f9 100%);
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            padding: 1rem 3rem;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            justify-content: space-between;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .logo-container {
+            width: 160px;
+            height: 40px;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-container img {
+            width: auto;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #000;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .nav-link:hover {
+            background-color: #f6f8fd;
+        }
+
+        .activity-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            background: linear-gradient(120deg, #4F8AFF, #0044FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .activity-card {
+            background: linear-gradient(145deg, #ffffff, #f3f3f3);
+            border-radius: 30px;
+            padding: 2rem;
+            box-shadow: 
+                20px 20px 60px #d1d1d1,
+                -20px -20px 60px #ffffff,
+                inset -5px -5px 15px rgba(255, 255, 255, 0.8),
+                inset 5px 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .activity-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(120deg, #4F8AFF, #0044FF);
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        .activity-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: white;
+        }
+
+        .activity-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .activity-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .activity-details {
+            background: rgba(79, 138, 255, 0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .detail-dot {
+            width: 8px;
+            height: 8px;
+            background: #4F8AFF;
+            border-radius: 50%;
+            margin-right: 0.8rem;
+        }
+
+        @media (max-width: 1024px) {
+            .activity-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .activity-container {
+                padding: 1rem;
+            }
+            
+            .activity-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 2em;
+            }
+
+            .activity-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="/static/logo.jpeg" alt="FINDER 로고" />
+        </div>
+        <div class="nav-links">
+            <a href="/templates/index.html" class="nav-link">HOME</a>
+            <a href="/templates/about.html" class="nav-link">ABOUT</a>
+            <a href="/templates/activity.html" class="nav-link">ACTIVITY</a>
+            <a href="/templates/apply.html" class="nav-link">APPLY</a>
+            <a href="/templates/staff.html" class="nav-link">STAFF</a>
+        </div>
+    </nav>
+
+    <div class="activity-container">
+        <h1 class="section-title">Our Activities</h1>
+        <div class="activity-grid">
+            <div class="activity-card">
+                <div class="activity-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 3h18v18H3V3zm16 16V5H5v14h14zM7 7h2v2H7V7zm4 0h2v2h-2V7zm4 0h2v2h-2V7zm-8 4h2v2H7v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2zm-8 4h2v2H7v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2z"/>
+                    </svg>
+                </div>
+                <h2 class="activity-title">Software Development</h2>
+                <p class="activity-description">
+                    최신 기술을 활용한 소프트웨어 개발 프로젝트를 수행합니다.
+                    웹/앱 개발부터 AI, 알고리즘까지 다양한 분야를 다룹니다.
+                </p>
+                <div class="activity-details">
+                    <div class="detail-item">
+                        <div class="detail-dot"></div>
+                        <span>각종 대회 참가</span>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-dot"></div>
+                        <span>AI/ML 연구</span>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-dot"></div>
+                        <span>알고리즘 스터디</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <div class="activity-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 9V7h-2V5a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v2H2v2h2v2H2v2h2v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2h2v-2h-2V9h2zm-4 6H6V5h12v10z"/>
+                        <path d="M8 7h8v2H8zM8 11h8v2H8z"/>
+                    </svg>
+                </div>
+                <h2 class="activity-title">Hardware Projects</h2>
+                <p class="activity-description">
+                    하드웨어 설계와 제작을 통해 실제 동작하는 시스템을 구현합니다.
+                    아두이노를 통한 실제작, 3D 툴을 통한 모델링을 다룹니다.
+                </p>
+                <div class="activity-details">
+                    <div class="detail-item">
+                        <div class="detail-dot"></div>
+                        <span>3D 모델링</span>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-dot"></div>
+                        <span>회로 설계, 디바이스 제작</span>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-dot"></div>
+                        <span>각종 대회 참가</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <div class="activity-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 2h8v3h-2v3l4.5 8H18v3h-2v3H8v-3H6v-3h-.5L10 8V5H8V2zm2 16h4v-1h1v-2H9v2h1v1z"/>
+                    </svg>
+                </div>
+                <h2 class="activity-title">Natural Science</h2>
+                <p class="activity-description">
+                    자연과학 분야의 연구를 통해 과학적 사고를 기릅니다.
+                    타 분과와의 연계활동과 자체적인 프로젝트를 수행합니다.
+                </p>
+                <div class="activity-details">
+                    <div class="detail-item">
+                        <div class="detail-dot"></div>
+                        <span>과학 실험 및 연구</span>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-dot"></div>
+                        <span>각종 대회 참가</span>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-dot"></div>
+                        <span>연구 논문 작성</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

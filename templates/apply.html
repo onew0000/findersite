@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FINDER - Apply</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, #f6f8fd 0%, #f1f4f9 100%);
+            min-height: 100vh;
+            padding-top: 80px;
+            display: flex;              
+            justify-content: center;    
+            align-items: center;        
+            margin: 0;                  
+            padding-top: 0;   
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            padding: 1rem 3rem;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            justify-content: space-between;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .logo-container {
+            width: 160px;
+            height: 40px;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-container img {
+            width: auto;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #000;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .nav-link:hover {
+            background-color: #f6f8fd;
+        }
+
+        .apply-container {
+            width: 100%; 
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 2rem;
+        }
+
+        .clay-card {
+            background: linear-gradient(145deg, #ffffff, #f3f3f3);
+            border-radius: 30px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 
+                20px 20px 60px #d1d1d1,
+                -20px -20px 60px #ffffff,
+                inset -5px -5px 15px rgba(255, 255, 255, 0.8),
+                inset 5px 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .apply-title {
+            font-size: 2.5em;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(120deg, #4F8AFF, #0044FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .apply-description {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .apply-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            font-size: 1.2em;
+            font-weight: 700;
+            text-decoration: none;
+            color: white;
+            background: linear-gradient(120deg, #4F8AFF, #0044FF);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 
+                8px 8px 16px #d1d1d1,
+                -8px -8px 16px #ffffff;
+        }
+
+        .apply-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                12px 12px 20px #d1d1d1,
+                -12px -12px 20px #ffffff;
+        }
+
+        .deadline-info {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: rgba(79, 138, 255, 0.1);
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        @media (max-width: 768px) {
+            .apply-container {
+                padding: 1rem;
+            }
+
+            .clay-card {
+                padding: 2rem;
+            }
+
+            .apply-title {
+                font-size: 2em;
+            }
+
+            .apply-button {
+                padding: 1rem 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .clay-card {
+                padding: 1.5rem;
+            }
+
+            .apply-title {
+                font-size: 1.8em;
+            }
+
+            .apply-description {
+                font-size: 1em;
+            }
+
+            .apply-button {
+                padding: 0.8rem 1.5rem;
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="/static/logo.jpeg" alt="FINDER 로고" />
+        </div>
+        <div class="nav-links">
+            <a href="/templates/index.html" class="nav-link">HOME</a>
+            <a href="/templates/about.html" class="nav-link">ABOUT</a>
+            <a href="/templates/activity.html" class="nav-link">ACTIVITY</a>
+            <a href="/templates/apply.html" class="nav-link">APPLY</a>
+            <a href="/templates/staff.html" class="nav-link">STAFF</a>
+        </div>
+    </nav>
+
+    <div class="apply-container">
+        <div class="clay-card">
+            <h1 class="apply-title">With FINDER</h1>
+            <p class="apply-description">
+                FINDER와 함께 성장하고 싶으신가요? 아래 버튼을 클릭하여 지원서를 작성해주세요.
+                소프트웨어, 하드웨어, 자연과학 분야에서 여러분의 열정을 보여주세요.
+            </p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeVvGTCDNqDv-WkZYDD7v4_reObDp9QXEnET2-7HiHv8Q4iHw/viewform?usp=header" target="_blank" class="apply-button">
+                지원하기
+            </a>
+            <div class="deadline-info">
+                모집 마감: 2025년 3월 XX일
+            </div>
+        </div>
+    </div>
+</body>
+</html>

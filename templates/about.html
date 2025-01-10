@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FINDER - About</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, #f6f8fd 0%, #f1f4f9 100%);
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            padding: 1rem 3rem;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            justify-content: space-between;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .logo-container {
+            width: 160px;
+            height: 40px;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-container img {
+            width: auto;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #000;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .nav-link:hover {
+            background-color: #f6f8fd;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        .clay-card {
+            background: linear-gradient(145deg, #ffffff, #f3f3f3);
+            border-radius: 30px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 
+                20px 20px 60px #d1d1d1,
+                -20px -20px 60px #ffffff,
+                inset -5px -5px 15px rgba(255, 255, 255, 0.8),
+                inset 5px 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .clay-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .about-title {
+            font-size: 2.5em;
+            font-weight: 900;
+            background: linear-gradient(120deg, #4F8AFF, #0044FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-description {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            background: linear-gradient(145deg, #ffffff, #f3f3f3);
+            padding: 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 
+                8px 8px 16px #d1d1d1,
+                -8px -8px 16px #ffffff;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: 900;
+            color: #4F8AFF;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1em;
+            color: #666;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 
+                10px 10px 20px #d1d1d1,
+                -10px -10px 20px #ffffff;
+        }
+
+        @media (max-width: 1024px) {
+            .about-container {
+                padding: 1.5rem;
+            }
+            
+            .about-content {
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                height: 300px;
+                order: -1;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-container {
+                padding: 1rem;
+            }
+
+            .clay-card {
+                padding: 1.5rem;
+            }
+
+            .about-title {
+                font-size: 2em;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="/static/logo.jpeg" alt="FINDER 로고" />
+        </div>
+        <div class="nav-links">
+            <a href="/templates/index.html" class="nav-link">HOME</a>
+            <a href="/templates/about.html" class="nav-link">ABOUT</a>
+            <a href="/templates/activity.html" class="nav-link">ACTIVITY</a>
+            <a href="/templates/apply.html" class="nav-link">APPLY</a>
+            <a href="/templates/staff.html" class="nav-link">STAFF</a>
+        </div>
+    </nav>
+
+    <div class="about-container">
+        <div class="clay-card">
+            <div class="about-content">
+                <div class="about-text">
+                    <h1 class="about-title">About FINDER</h1>
+                    <p class="about-description">
+                        FINDER는 2011년부터 시작된 소프트웨어, 하드웨어, 자연과학 분야의 공학 동아리입니다. 
+                        우리는 혁신적인 기술과 과학적 사고를 바탕으로 미래를 이끌어갈 인재를 양성합니다.
+                    </p>
+                    <p class="about-description">
+                        다양한 프로젝트와 연구 활동을 통해 경험을 쌓고, 
+                        부원들과의 협업을 통해 창의적인 문제 해결 능력을 개발합니다.
+                    </p>
+                    <div class="stats-container">
+                        <div class="stat-item">
+                            <div class="stat-number">13</div>
+                            <div class="stat-label">Years of History</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Budjet</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">13</div>
+                            <div class="stat-label">2grade members</div>
+                        </div>
+                    </div>
+                </div>
+                <img src="/static/picture.jpg" alt="FINDER 활동사진" class="about-image">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
