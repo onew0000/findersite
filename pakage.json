@@ -1,0 +1,70 @@
+{
+    "name": "netlify-build",
+    "private": true,
+    "version": "0.0.0",
+    "description": "Netlify build module",
+    "type": "module",
+    "author": "Netlify Inc.",
+    "scripts": {
+      "prepare": "husky install",
+      "lint": "eslint --cache --report-unused-disable-directives --ignore-path .gitignore --max-warnings=0 . --fix",
+      "lint:ci": "eslint --cache --report-unused-disable-directives --ignore-path .gitignore --max-warnings=0 .",
+      "build": "lerna run build",
+      "test": "lerna run test",
+      "test:ci": "lerna run test:ci",
+      "format": "prettier --write .",
+      "format:ci": "prettier --check ."
+    },
+    "workspaces": [
+      "packages/*"
+    ],
+    "keywords": [
+      "nodejs",
+      "javascript",
+      "windows",
+      "macos",
+      "linux",
+      "shell",
+      "bash",
+      "build",
+      "terminal",
+      "deployment",
+      "es6",
+      "serverless",
+      "ci",
+      "continuous-integration",
+      "continuous-delivery",
+      "continuous-deployment",
+      "plugins",
+      "continuous-testing",
+      "netlify-plugin",
+      "netlify"
+    ],
+    "homepage": "https://github.com/netlify/build",
+    "repository": "https://github.com/netlify/build",
+    "bugs": {
+      "url": "https://github.com/netlify/build/issues"
+    },
+    "license": "MIT",
+    "devDependencies": {
+      "@commitlint/cli": "^17.1.2",
+      "@commitlint/config-conventional": "^17.1.0",
+      "@typescript-eslint/eslint-plugin": "^5.39.0",
+      "ci-info": "^4.0.0",
+      "eslint": "^8.24.0",
+      "eslint-config-prettier": "^9.0.0",
+      "eslint-plugin-import": "^2.26.0",
+      "husky": "^8.0.0",
+      "lerna": "^5.5.2",
+      "lint-staged": "^15.0.0",
+      "nx": "^14.7.13",
+      "prettier": "^3.0.0"
+    },
+    "engines": {
+      "node": "^14.16.0 || >=16.0.0"
+    },
+    "lint-staged": {
+      "!(packages/*/tests/**/fixtures/**/*)*.+(j|t)s": "eslint --ignore-path .gitignore --cache --fix",
+      "*": "prettier --write --ignore-unknown"
+    }
+  }
