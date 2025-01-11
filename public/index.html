@@ -379,7 +379,7 @@
             .content-wrapper {
                 gap: 1.5rem;
             }
-        }
+        } 
     </style>
 </head>
 
@@ -520,6 +520,58 @@
                 }
             });
         }
+        let typedKeys = '';
+let isTyping = false;
+let typingStartTime;
+
+function createAndShowImage() {
+    const img = document.createElement('img');
+    img.src = 'static/egg.jpeg'; 
+    img.alt = '이스터에그 이미지';
+    img.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 300px;
+        border-radius: 12px;
+        z-index: 1000;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    `;
+
+    document.body.appendChild(img);
+
+    setTimeout(() => {
+        img.style.transition = 'opacity 0.5s';
+        img.style.opacity = '0';
+        setTimeout(() => document.body.removeChild(img), 500);
+    }, 5000);
+}
+
+document.addEventListener('keydown', (e) => {
+    const currentTime = Date.now();
+    if (!isTyping) {
+        isTyping = true;
+        typingStartTime = currentTime;
+        typedKeys = '';
+    }
+    if (currentTime - typingStartTime > 15000) {
+        isTyping = false;
+        typedKeys = '';
+        return;
+    }
+    typedKeys += e.key;
+
+    if (typedKeys.toLowerCase().includes('findersw')) {
+        createAndShowImage();
+        isTyping = false;
+        typedKeys = '';
+    }
+    if (typedKeys.length > 20) {
+        isTyping = false;
+        typedKeys = '';
+    }
+});
     </script>
 </body>
 
