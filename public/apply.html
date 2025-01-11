@@ -29,7 +29,7 @@
             align-items: center;
             padding: 1rem 3rem;
             background-color: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             justify-content: space-between;
             position: fixed;
             width: 100%;
@@ -39,13 +39,14 @@
         }
 
         .logo-container {
-            width: 160px;
+            width: 150px;
             height: 40px;
             border-radius: 8px;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
+            background-color: white;
         }
 
         .logo-container img {
@@ -69,8 +70,49 @@
             transition: all 0.3s;
         }
 
+        .nav-link {
+            text-decoration: none;
+            color: #000;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            position: relative;
+            transition: all 0.3s;
+            border-radius: 12px;
+        }
+
         .nav-link:hover {
             background-color: #f6f8fd;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            transition: all 0.3s ease;
+            border-radius: 3px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
         }
 
         .apply-container {
@@ -142,21 +184,45 @@
         }
 
         @media (max-width: 768px) {
-            .apply-container {
+            .navbar {
                 padding: 1rem;
             }
 
-            .clay-card {
-                padding: 2rem;
+            .logo-container {
+                width: 120px;
+                height: 35px;
+                flex-shrink: 0;
             }
 
-            .apply-title {
-                font-size: 2em;
+            .hamburger {
+                display: flex;
             }
 
-            .apply-button {
-                padding: 1rem 2rem;
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 250px;
+                height: 100vh;
+                background-color: white;
+                flex-direction: column;
+                padding: 80px 20px 20px;
+                gap: 1rem;
+                transition: all 0.3s ease;
+                box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
             }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-link {
+                width: 100%;
+                text-align: center;
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+
         }
 
         @media (max-width: 480px) {
@@ -184,6 +250,11 @@
         <div class="logo-container">
             <img src="static/logo.jpeg" alt="로고" />
         </div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <div class="nav-links">
             <a href="index.html" class="nav-link">HOME</a>
             <a href="about.html" class="nav-link">ABOUT</a>
@@ -208,5 +279,28 @@
             </div>
         </div>
     </div>
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
