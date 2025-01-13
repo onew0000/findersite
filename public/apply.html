@@ -16,12 +16,11 @@
             font-family: 'Outfit', sans-serif;
             background: linear-gradient(135deg, #f6f8fd 0%, #f1f4f9 100%);
             min-height: 100vh;
-            padding-top: 80px;
             display: flex;              
             justify-content: center;    
             align-items: center;        
             margin: 0;                  
-            padding-top: 0;   
+            padding-top: 80px;   
         }
 
         .navbar {
@@ -67,22 +66,130 @@
             font-size: 1.1rem;
             padding: 0.5rem 1rem;
             border-radius: 12px;
-            transition: all 0.3s;
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: #000;
-            font-weight: 600;
-            font-size: 1.1rem;
-            padding: 0.5rem 1rem;
-            position: relative;
-            transition: all 0.3s;
-            border-radius: 12px;
+            transition: all 0.3s ease;
         }
 
         .nav-link:hover {
             background-color: #f6f8fd;
+            transform: translateY(-2px);
+        }
+
+        .apply-container {
+            width: 100%; 
+            max-width: 900px;
+            margin: 6rem auto 4rem;
+            padding: 2rem;
+        }
+        
+
+        .clay-card {
+            background: linear-gradient(145deg, #ffffff, #f3f3f3);
+            border-radius: 40px;
+            padding: 4rem 3rem;
+            position: relative;
+            box-shadow: 
+                20px 20px 60px #d1d1d1,
+                -20px -20px 60px #ffffff,
+                inset -5px -5px 15px rgba(255, 255, 255, 0.8),
+                inset 5px 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+
+        .clay-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 40px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.4), rgba(255,255,255,0));
+            pointer-events: none;
+        }
+
+        .apply-title {
+            font-size: 3em;
+            font-weight: 900;
+            margin-bottom: 2.5rem;
+            background: linear-gradient(120deg, #4F8AFF, #0044FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            letter-spacing: -0.5px;
+        }
+        
+        .apply-description {
+            color: #555;
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 3.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            white-space: pre-line;
+            word-break: keep-all;
+            word-wrap: break-word;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .button-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .apply-button {
+            display: inline-block;
+            padding: 1.4rem 4rem;
+            font-size: 1.3em;
+            font-weight: 700;
+            text-decoration: none;
+            color: white;
+            background: linear-gradient(135deg, #4F8AFF, #0044FF);
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 15px rgba(79, 138, 255, 0.2);
+        }
+        
+
+        .apply-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.5s;
+        }
+        
+        .apply-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px rgba(79, 138, 255, 0.3);
+        }
+        
+        .apply-button:hover::before {
+            left: 100%;
+        }
+
+        .deadline-info {
+            padding: 1rem 2rem;
+            background: rgba(79, 138, 255, 0.1);
+            border-radius: 20px;
+            font-weight: 500;
+            color: #4F8AFF;
+            box-shadow: 
+                inset 0 2px 4px rgba(0,0,0,0.05),
+                0 2px 4px rgba(79, 138, 255, 0.1);
         }
 
         .hamburger {
@@ -103,86 +210,6 @@
             border-radius: 3px;
         }
 
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(7px, 7px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
-        }
-
-        .apply-container {
-            width: 100%; 
-            max-width: 800px;
-            margin: 4rem auto;
-            padding: 2rem;
-        }
-
-        .clay-card {
-            background: linear-gradient(145deg, #ffffff, #f3f3f3);
-            border-radius: 30px;
-            padding: 3rem;
-            text-align: center;
-            box-shadow: 
-                20px 20px 60px #d1d1d1,
-                -20px -20px 60px #ffffff,
-                inset -5px -5px 15px rgba(255, 255, 255, 0.8),
-                inset 5px 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .apply-title {
-            font-size: 2.5em;
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(120deg, #4F8AFF, #0044FF);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .apply-description {
-            color: #666;
-            font-size: 1.1em;
-            line-height: 1.6;
-            margin-bottom: 2.5rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .apply-button {
-            display: inline-block;
-            padding: 1.2rem 3rem;
-            font-size: 1.2em;
-            font-weight: 700;
-            text-decoration: none;
-            color: white;
-            background: linear-gradient(120deg, #4F8AFF, #0044FF);
-            border-radius: 20px;
-            transition: all 0.3s ease;
-            box-shadow: 
-                8px 8px 16px #d1d1d1,
-                -8px -8px 16px #ffffff;
-        }
-
-        .apply-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 
-                12px 12px 20px #d1d1d1,
-                -12px -12px 20px #ffffff;
-        }
-
-        .deadline-info {
-            margin-top: 2rem;
-            padding: 1rem;
-            background: rgba(79, 138, 255, 0.1);
-            border-radius: 15px;
-            display: inline-block;
-        }
-
         @media (max-width: 768px) {
             .navbar {
                 padding: 1rem;
@@ -191,7 +218,6 @@
             .logo-container {
                 width: 120px;
                 height: 35px;
-                flex-shrink: 0;
             }
 
             .hamburger {
@@ -216,31 +242,85 @@
                 right: 0;
             }
 
-            .nav-link {
-                width: 100%;
-                text-align: center;
-                padding: 1rem;
-                font-size: 0.9rem;
+            .clay-card {
+                padding: 2.5rem 1.5rem;
             }
 
+            .apply-title {
+                font-size: 2.2em;
+            }
+
+            .apply-description {
+                font-size: 1.1em;
+                padding: 0;
+                text-align: center;
+            }
+
+            .apply-button {
+                display: inline-block;
+                padding: 1.4rem 4rem;
+                font-size: 1.3em;
+                font-weight: 700;
+                text-decoration: none;
+                color: white;
+                background: linear-gradient(135deg, #4F8AFF, #0044FF);
+                border-radius: 30px;
+                transition: all 0.3s ease;
+                position: relative;
+                overflow: hidden;
+            }
+            .button-wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
+            .apply-button::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+                transition: 0.5s;
+            }
+            
+            .apply-button:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 10px 20px rgba(0,68,255,0.2);
+            }
+            
+            .apply-button:hover::before {
+                left: 100%;
+            }
+            
         }
 
         @media (max-width: 480px) {
             .clay-card {
-                padding: 1.5rem;
+                padding: 2rem 1.2rem;
+                border-radius: 30px;
             }
 
             .apply-title {
-                font-size: 1.8em;
+                font-size: 2em;
             }
 
             .apply-description {
                 font-size: 1em;
+                line-height: 1.6;
+                margin-bottom: 2rem;
             }
 
             .apply-button {
-                padding: 0.8rem 1.5rem;
+                padding: 1rem 2rem;
                 font-size: 1.1em;
+            }
+
+            .deadline-info {
+                padding: 1rem 1.5rem;
+                font-size: 0.9em;
             }
         }
     </style>
@@ -268,16 +348,22 @@
         <div class="clay-card">
             <h1 class="apply-title">With FINDER</h1>
             <p class="apply-description">
-                FINDER는 2011년 이후로부터 다양한 이공계 대회에서 우수한 성과를 달성하며 한 페이지에 다 담을 수 도 없는 수상 경력을 이뤄내고 있습니다. 이는 부원 분들의 게으르지 않고 꾸준히 나아가고자 하는 마음 덕이라고 생각합니다. 본 동아리에서 여러분의 청춘을 불태워 그 무엇과도 바꿀 수 없는 가치로 바꿔나가길 바랍니다.
+                FINDER는 2011년 이후로부터 다양한 이공계 대회에서 우수한 성과를 달성하며 
+                한 페이지에 다 담을 수 도 없는 수상 경력을 이뤄내고 있습니다. 
+                이는 부원 분들의 게으르지 않고 꾸준히 나아가고자 하는 마음 덕이라고 생각합니다. 
+                본 동아리에서 여러분의 청춘을 불태워 그 무엇과도 바꿀 수 없는 가치로 바꿔나가길 바랍니다.
             </p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeVvGTCDNqDv-WkZYDD7v4_reObDp9QXEnET2-7HiHv8Q4iHw/viewform?usp=header" target="_blank" class="apply-button">
-                지원하기
-            </a>
+            <div class="button-container">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeVvGTCDNqDv-WkZYDD7v4_reObDp9QXEnET2-7HiHv8Q4iHw/viewform?usp=header" target="_blank" class="apply-button">
+                    지원하기
+                </a>
+            </div>
             <div class="deadline-info">
                 모집 마감: 2025년 3월 XX일
             </div>
         </div>
     </div>
+
     <script>
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
