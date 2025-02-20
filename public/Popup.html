@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학번 확인 시스템</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, #f8faff 0%, #eef2f9 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(79, 138, 255, 0.07), rgba(0, 68, 255, 0.05));
+            top: -100px;
+            right: -100px;
+            z-index: -1;
+        }
+
+        body::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(79, 138, 255, 0.08), rgba(0, 68, 255, 0.04));
+            bottom: -200px;
+            left: -150px;
+            z-index: -1;
+        }
+
+        .container {
+            background: linear-gradient(145deg, #ffffff, #f9f9f9);
+            border-radius: 30px;
+            padding: 3.5rem 3rem;
+            box-shadow:
+                15px 15px 30px rgba(209, 209, 209, 0.5),
+                -15px -15px 30px rgba(255, 255, 255, 0.8),
+                inset -2px -2px 5px rgba(255, 255, 255, 0.4),
+                inset 2px 2px 5px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            width: 100%;
+            max-width: 420px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        .container:hover {
+            transform: translateY(-6px);
+            box-shadow:
+                20px 20px 60px rgba(209, 209, 209, 0.6),
+                -20px -20px 60px rgba(255, 255, 255, 0.9),
+                inset -2px -2px 5px rgba(255, 255, 255, 0.4),
+                inset 2px 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #333;
+            text-align: center;
+            margin-bottom: 5px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: #666;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .input-group {
+            width: 100%;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        input {
+            width: 100%;
+            padding: 16px 20px;
+            border: none;
+            border-radius: 16px;
+            font-size: 16px;
+            background: linear-gradient(145deg, #f7f7f7, #ffffff);
+            box-shadow: 
+                inset 4px 4px 8px rgba(0, 0, 0, 0.03),
+                inset -4px -4px 8px rgba(255, 255, 255, 0.7);
+            text-align: center;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 500;
+            color: #444;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            box-shadow: 
+                inset 6px 6px 12px rgba(0, 0, 0, 0.06),
+                inset -6px -6px 12px rgba(255, 255, 255, 0.8);
+        }
+
+        input::placeholder {
+            color: #aaa;
+            font-weight: 400;
+        }
+
+        button {
+            background: linear-gradient(135deg, #4F8AFF, #0044FF);
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 
+                6px 6px 12px rgba(0, 0, 0, 0.1),
+                -6px -6px 12px rgba(255, 255, 255, 0.5);
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.6s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                8px 8px 16px rgba(0, 0, 0, 0.15),
+                -8px -8px 16px rgba(255, 255, 255, 0.7);
+        }
+
+        button:hover::before {
+            left: 100%;
+        }
+
+        .info-text {
+            font-size: 0.85em;
+            color: #888;
+            margin-top: 5px;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .decoration {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(79, 138, 255, 0.05), rgba(0, 68, 255, 0.03));
+            top: -50px;
+            right: -50px;
+            z-index: -1;
+        }
+
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 2.5rem 2rem;
+                margin: 1.5rem;
+                max-width: 90%;
+            }
+
+            h1 {
+                font-size: 1.6em;
+            }
+
+            button {
+                width: 100%;
+                padding: 14px 20px;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="decoration"></div>
+        <div>
+            <h1>최종 합격자 조회</h1>
+            <div class="subtitle">2025학년도 FINDER 선발 결과</div>
+        </div>
+        <div class="input-group">
+            <input type="text" id="studentId" placeholder="학번을 입력하세요" autocomplete="off">
+        </div>
+        <button onclick="checkResult()">결과 확인하기</button>
+        <div class="info-text">
+            본인 확인을 위해 학번을 정확하게 입력해주세요.<br>
+            결과는 개인정보 보호를 위해 본인만 확인 가능합니다.
+        </div>
+    </div>
+
+    <script>
+        function checkResult() {
+            const studentId = document.getElementById('studentId').value.trim();
+            if (studentId === '') {
+                alert('학번을 입력해주세요.');
+                return;
+            }
+            
+            const button = document.querySelector('button');
+            button.innerHTML = '<span style="display:inline-block;animation:spin 1s infinite linear;">⏳</span> 확인 중...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                window.location.href = `check.html?id=${encodeURIComponent(studentId)}`;
+            }, 800);
+        }
+
+        document.getElementById('studentId').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkResult();
+            }
+        });
+        
+        document.head.insertAdjacentHTML('beforeend', `
+            <style>
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            </style>
+        `);
+    </script>
+</body>
+</html>
